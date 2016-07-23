@@ -1,6 +1,7 @@
 /*Project: Live Date
 By: Zach Murphy
-*/This script runs in any Google App to inset the date and updates it 
+Adds date into Google Docs and Updates it
+*/
 
 
 /*
@@ -32,14 +33,14 @@ function insertDate() {
       mm = pad(mm, 2)
       var yyyy = d.getFullYear();
       var date = mm + "-" + dd + "-" + yyyy;
-      var element = cursor.insertText(date);
+      var element = insertionPoint.insertText(date);
       if (element) {
         element.setBold(true);
       } else {
-        DocumentApp.getUi().alert('Error:Can't insert text at current location.');
+        DocumentApp.getUi().alert('Error Cant insert text at current location.');
       }
     } else {
-      DocumentApp.getUi().alert('Error: Can't find a cursor in the document.');
+      DocumentApp.getUi().alert('Error Cant find a cursor in the document.');
   }
 
 }
@@ -48,3 +49,4 @@ function pad (str, max) {
   str = str.toString();
   return str.length < max ? pad("0" + str, max) : str;
 }
+
